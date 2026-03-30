@@ -385,3 +385,20 @@ gallerySections.forEach(section => {
     section.style.transition = "all 1s ease-out";
     sectionObserver.observe(section);
 });
+
+
+
+//FOOTER
+const footer = document.querySelector('.footer');
+if (footer) {
+    footer.style.opacity = '0';
+    footer.style.transition = 'opacity 1s ease';
+    
+    const footerObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            footer.style.opacity = '1';
+        }
+    }, { threshold: 0.1 });
+    
+    footerObserver.observe(footer);
+}
